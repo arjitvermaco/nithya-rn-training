@@ -269,3 +269,30 @@ HINT: Use an if/else statement 😉
 
 GOOD LUCK 😀
 */
+
+// let x = (10*4+10)/10;
+// Logical Operators
+
+const hasDriversLicense = true; // A
+const hasGoodVision = false; // B
+
+console.log(hasDriversLicense && hasGoodVision );//false
+console.log(hasDriversLicense || hasGoodVision);//true
+console.log(!hasDriversLicense);
+
+// The Conditional (Ternary) Operator
+
+let age = 15;
+
+if(age>=18){
+  console.log("Allowed to drive")
+}else{
+  console.log("Not allowed to drive.")
+}
+
+age>=18 ? console.log("Allowed to drive") :  console.log("Not allowed to drive.") 
+
+let favDrink = age>18? "Coffee":"Milk";
+console.log(favDrink)
+
+console.log(`Hey! My age is ${age} and I am ${age>=18? 'allowed':'not allowed'} to drive`)
