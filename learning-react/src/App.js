@@ -1,31 +1,51 @@
-function App() {
-  // const win = false;
-  // // if(win){
-  // //     return(<h1>You Won </h1>)
-  // // }else{
-  // //     return(<h1>You Lost</h1>)
-  // // }
+import { useState } from "react";
 
-  // return(
-  //     <>
-  //     {win ? "You Won":"You Lost"}
-  //     </>
-  // )
+export default function App() {
+  //State
+  //Hooks => useState
 
-//   const cars = ["Ford", "BMW", "Audi"];
-    const cars = [
-    {id: 1, brand: 'Ford'},
-    {id: 2, brand: 'BMW'},
-    {id: 3, brand: 'Audi'}
-  ];
+
+  let [name, setName] = useState("");
+  let [age,setAge] = useState("")
+
+  let [formData,setFormData] = useState({
+    name:"",
+    age:''
+  })
+//   function handleButtonClick() {
+//     setName("Ankit");
+//   }
 
   return (
-    <>
-      {cars.map((car,index) => {
-        return <p> My {car.id} car is  {car.brand}</p>;
-      })}
-    </>
+    <div>
+     
+      <input
+        type="text"
+        onChange={(event) => {
+          console.log(event.target.value);
+        //   setName(event.target.value)
+        setFormData({...formData,name:event.target.value})
+        }}
+      />
+    <br/>
+    <input
+        type="text"
+        onChange={(event) => {
+            console.log(event.target.value);
+            setFormData({...formData,age:event.target.value})
+
+        }}
+      />
+
+      User had entered : {formData.name} | {formData.age}
+      {/* <button
+        onClick={(event) => {
+          console.log(event);
+          handleButtonClick();
+        }}
+      >
+        Click Me
+      </button> */}
+    </div>
   );
 }
-
-export default App;
