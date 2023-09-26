@@ -1,51 +1,32 @@
-import { useState } from "react";
+import React, { useEffect, useState } from 'react'
 
 export default function App() {
-  //State
-  //Hooks => useState
 
-
-  let [name, setName] = useState("");
-  let [age,setAge] = useState("")
-
-  let [formData,setFormData] = useState({
-    name:"",
-    age:''
+  // useEffect(callback function , [arguments])
+  const [appName,setAppName] = useState("App Name");
+  const [year,setYear] = useState(2023)
+  // 1. Will Run on component load and on any state change 
+  useEffect(()=>{
+    console.log("Use Effect has loaded")
   })
-//   function handleButtonClick() {
-//     setName("Ankit");
-//   }
+  //2.Will Run only on component load
+  useEffect(()=>{
+    console.log("Will Run only on component Load")
+  },[])
+  //3.Will Run on component load and also on arguments changed
+ useEffect(()=>{
+  console.log("Will Run only on component Load and also on appName change")
+ },[appName,year])
+
+
 
   return (
     <div>
-     
-      <input
-        type="text"
-        onChange={(event) => {
-          console.log(event.target.value);
-        //   setName(event.target.value)
-        setFormData({...formData,name:event.target.value})
-        }}
-      />
-    <br/>
-    <input
-        type="text"
-        onChange={(event) => {
-            console.log(event.target.value);
-            setFormData({...formData,age:event.target.value})
+      {appName} <br/>
+      <button onClick={()=>{setAppName("New App nAme")}}>Change App Name</button> <br/>
 
-        }}
-      />
-
-      User had entered : {formData.name} | {formData.age}
-      {/* <button
-        onClick={(event) => {
-          console.log(event);
-          handleButtonClick();
-        }}
-      >
-        Click Me
-      </button> */}
+      {year} <br/>
+      <button onClick={()=>{setYear(2024)}}>Change Year</button>
     </div>
-  );
+  )
 }
